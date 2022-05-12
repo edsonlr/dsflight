@@ -1,4 +1,5 @@
 import FlightScore from "components/FlightScore";
+import { Link } from "react-router-dom";
 
 function FlightCard() {
 
@@ -17,7 +18,10 @@ function FlightCard() {
             <div className="dsflight-card-bottom-container">
                 <h3>{flight.title}</h3>
                 <FlightScore />
-                <div className="btn btn-primary dsflight-btn">Avaliar</div>
+                <Link to={`/form/${flight.id}`}>
+                    <div className="btn btn-primary dsflight-btn">Avaliar</div>
+                </Link>
+
             </div>
         </div>
     );
