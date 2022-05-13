@@ -34,6 +34,7 @@
     align-items: center;
     padding: 10px 10px 20px 10px;
     border-radius: 0 0 8px 8px;
+    margin-bottom: 0;
 }
 
 .dsflight-card-bottom-container h3 {
@@ -42,7 +43,15 @@
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 10px;
-    min-height: 40px;
+    min-height: 20px;
+}
+
+.dsflight-card-bottom-container p {
+    color: #4A4A4A;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 0;
+    min-height: 0;
 }
 
 .dsflight-btn {
