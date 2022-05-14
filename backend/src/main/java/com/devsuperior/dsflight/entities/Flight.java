@@ -1,10 +1,14 @@
 package com.devsuperior.dsflight.entities;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +28,9 @@ public class Flight {
 	private String dataPartida;
 	private String dataChegada;
 	private String tipoVoo;
+	
+	@OneToMany(mappedBy = "id.flight")
+	private Set<Score> scores = new HashSet<>();
 
 	public Flight() {
 		
@@ -130,6 +137,10 @@ public class Flight {
 
 	public void setTipoVoo(String tipoVoo) {
 		this.tipoVoo = tipoVoo;
+	}
+	
+	public Set<Score> getScores() {
+		return scores;
 	}
 
 		
