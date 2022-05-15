@@ -1,24 +1,17 @@
 import FlightScore from "components/FlightScore";
 import { Link } from "react-router-dom";
-
-function FlightCard() {
-
-    const flight = {
-        id: 1,
-        image: "http://www.geocities.ws/rumboalsud/B737/13-cx-vhm.jpg",
-        title: " Pluna - Boeing 737 - CX-BHM",
-        count: 2,
-        score: 4.5,
-        data_chegada: "01/07/1971",
-        data_partida: "01/07/1971",
-        destino: "Montevideo - Carrasco",
-        origem: "São Paulo - Congonhas",
-        tipo_voo: "inter", 
-        duracao: 160,
-
-    };
+import { Flight } from "types/flight";
 
 
+type Props = {
+    flight: Flight;
+}
+
+
+
+function FlightCard( { flight } : Props) {
+
+    
     return (
         <div>
             <img className="dsflight-flight-card-image" src={flight.image} alt={flight.title} />
