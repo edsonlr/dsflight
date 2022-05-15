@@ -1,21 +1,28 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import FlightCard from "components/FlightCard";
 import Pagination from "components/Pagination";
 import { BASE_URL } from "utils/requests";
+import { FlightPage } from "types/flight";
 
 function Listing() {
 
-    // FORMA ERRADA
+    const [pageNumber, setPageNumber] = useState(0);
 
-    axios.get(`${BASE_URL}/flights?size=12&page=0`)
-    .then(response => {
-        console.log(response.data);
-    });
-
+    useEffect(() => {
+        axios.get(`${BASE_URL}/flights?size=12&page=1`)
+            .then(response => {
+                const data = response.data as FlightPage;
+                console.log(data);
+                setPageNumber(data.number);
+            });
+    }, []);
 
     return (
 
         <>
+
+            <p>{pageNumber}</p>
             <Pagination />
 
             <div className="container" >
