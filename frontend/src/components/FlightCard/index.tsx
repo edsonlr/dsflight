@@ -23,7 +23,7 @@ function FlightCard( { flight } : Props) {
                 <p>destino: {flight.destino}</p>
                 <p>data chegada : {flight.data_chegada}</p>
                 <p>duracao : {flight.duracao} minutos</p>
-                <FlightScore />
+                <FlightScore count={flight.count} score={flight.score} />
                 <Link to={`/form/${flight.id}`}>
                     <div className="btn btn-primary dsflight-btn">Avaliar</div>
                 </Link>

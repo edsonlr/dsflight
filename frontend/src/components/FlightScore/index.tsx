@@ -1,15 +1,18 @@
 import FlightStars from "components/FlightStars";
 import './styles.css'
 
-function FlightScore() {
+type Props = {
+    score: number;
+    count: number;
+}
 
-    const score = 3.5;
-    const count = 13;
+function FlightScore({ score, count } : Props) {
 
+   
     return (
         <div className="dsflight-score-container">
             <p className="dsflight-score-value">{score > 0 ? score.toFixed(1) : '-'}</p>
-            <FlightStars />
+            <FlightStars score={score} />
             <p className="dsflight-score-count">{count} avaliações</p>
         </div>
 
