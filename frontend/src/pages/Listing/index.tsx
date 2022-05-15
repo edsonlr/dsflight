@@ -29,26 +29,15 @@ function Listing() {
             });
     }, [pageNumber]);
 
-    const flight = {
-        id: 1,
-        image: "http://www.geocities.ws/rumboalsud/B737/13-cx-vhm.jpg",
-        title: " Pluna - Boeing 737 - CX-BHM",
-        count: 2,
-        score: 4.5,
-        data_chegada: "01/07/1971",
-        data_partida: "01/07/1971",
-        destino: "Montevideo - Carrasco",
-        origem: "São Paulo - Congonhas",
-        tipo_voo: "inter",
-        duracao: 160,
-
-    };
+   const handlePageChange = (newPageNumber : number) => {
+       setPageNumber(newPageNumber);
+   }
 
     return (
 
         <>
 
-            <Pagination />
+            <Pagination page={page} onChange={handlePageChange} />
 
             <div className="container" >
                 <div className="row" >
