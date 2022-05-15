@@ -1,7 +1,17 @@
+import axios from "axios";
 import FlightCard from "components/FlightCard";
 import Pagination from "components/Pagination";
+import { BASE_URL } from "utils/requests";
 
 function Listing() {
+
+    // FORMA ERRADA
+
+    axios.get(`${BASE_URL}/flights?size=12&page=0`)
+    .then(response => {
+        console.log(response.data);
+    });
+
 
     return (
 
