@@ -1,9 +1,11 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Flight } from 'types/flight';
 import { BASE_URL } from 'utils/requests';
+import { validateEmail } from 'utils/validate'; 
 import './styles.css';
+
 
 type Props ={
     flightId : string;
@@ -11,6 +13,8 @@ type Props ={
 
 
 function FormCard( { flightId } : Props) {
+
+    const navigate = useNavigate();
 
     const [flight, setFlight] = useState<Flight>();
 
@@ -20,6 +24,36 @@ function FormCard( { flightId } : Props) {
             setFlight(response.data);
         })
     }, [flightId]);
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        
+        event.preventDefault(); 
+
+        
+        const email = (event.target as any).email.value;
+        const score = (event.target as any).score.value;
+
+        if (!validateEmail(email)) {
+           return 
+        }
+
+        const config: AxiosRequestConfig = {
+            baseURL: BASE_URL,
+            method: 'PUT',
+            url: '/scores',
+            data: {
+                email: email,
+                flightId: flightId,
+                score: score
+            }
+        }
+
+        axios(config).then(response => {
+            console.log(response.data);
+            navigate("/");
+        });
+        
+    }
   
     return (
         <div className="dsflight-form-container">
@@ -32,7 +66,7 @@ function FormCard( { flightId } : Props) {
                 <p>destino: {flight?.destino}</p>
                 <p>data chegada : {flight?.data_chegada}</p>
                 <p>duracao : {flight?.duracao} minutos</p>
-                <form className="dsflight-form">
+                <form className="dsflight-form" onSubmit={handleSubmit}>  
                     <div className="form-group dsflight-form-group">
                         <label htmlFor="email">Informe seu email</label>
                         <input type="email" className="form-control" id="email" />

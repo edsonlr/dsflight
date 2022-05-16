@@ -26,8 +26,5 @@ function Pagination({ page, onChange } : Props) {
 
     );
 
-
-
 }
-
 export default Pagination;
