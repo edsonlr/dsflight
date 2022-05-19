@@ -14,13 +14,14 @@ import com.devsuperior.dsflight.services.ScoreService;
 @RequestMapping(value = "/scores")
 public class ScoreController {
 
-	@Autowired
-	private ScoreService service;
+		@Autowired
+		private ScoreService service;
 
-	@PutMapping(value = "/{id}")
-	public FlightDTO saveScore(@RequestBody ScoreDTO dto) {
-		FlightDTO flightDTO = service.saveScore(dto);
-		return flightDTO;
+		@PutMapping
+		public FlightDTO saveScore(@RequestBody ScoreDTO dto) {
+			FlightDTO flightDTO = service.saveScore(dto);
+			return flightDTO;
+		}	
+
 	}
 
-}

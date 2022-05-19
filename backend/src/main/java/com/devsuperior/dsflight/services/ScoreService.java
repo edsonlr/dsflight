@@ -2,6 +2,7 @@ package com.devsuperior.dsflight.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.dsflight.dto.FlightDTO;
 import com.devsuperior.dsflight.dto.ScoreDTO;
@@ -24,6 +25,7 @@ public class ScoreService {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Transactional
 	public FlightDTO saveScore(ScoreDTO dto) {
 
 		User user = userRepository.findByEmail(dto.getEmail());

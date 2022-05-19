@@ -22,7 +22,6 @@ public class FlightDTO {
 		
 	public FlightDTO(Long id, String title, Double score, Integer count, String image, String origem, String destino,
 			Integer duracao, String data_partida, String data_chegada, String tipo_voo) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.score = score;
@@ -40,7 +39,7 @@ public class FlightDTO {
 
 
 	public FlightDTO(Flight flight) {
-		id =flight.getId();
+		id = flight.getId();
 		title = flight.getTitle();
 		score = flight.getScore();
 		count = flight.getCount();

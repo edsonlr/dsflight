@@ -1,6 +1,5 @@
 package com.devsuperior.dsflight.entities;
 
-
 import java.util.HashSet;
 import java.util.Set;
 

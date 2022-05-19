@@ -6,6 +6,6 @@ import com.devsuperior.dsflight.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 	
+
 	User findByEmail(String email);
-	
 }
