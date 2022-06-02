@@ -32,6 +32,8 @@ function FormCard( { flightId } : Props) {
         
         const email = (event.target as any).email.value;
         const score = (event.target as any).score.value;
+        const tipo_voo = (event.target as any).tipo_voo.value;
+        const duracao = (event.target as any).duracao.value;
 
         if (!validateEmail(email)) {
            return 
@@ -44,7 +46,9 @@ function FormCard( { flightId } : Props) {
             data: {
                 email: email,
                 flightId: flightId,
-                score: score
+                score: score,
+                tipo_voo: tipo_voo,
+                duracao: duracao
             }
         }
 
@@ -71,6 +75,7 @@ function FormCard( { flightId } : Props) {
                         <label htmlFor="email">Informe seu email</label>
                         <input type="email" className="form-control" id="email" />
                     </div>
+ 
                     <div className="form-group dsflight-form-group">
                         <label htmlFor="score">Informe sua avaliação</label>
                         <select className="form-control" id="score">
@@ -81,6 +86,17 @@ function FormCard( { flightId } : Props) {
                             <option>5</option>
                         </select>
                     </div>
+                    <h3> Preencha abaixo caso deseje alterar algum dado do voo</h3>
+
+                    <div className="form-group dsflight-form-group">
+                        <label htmlFor="tipo_voo">Informe o tipo de voo</label>
+                        <input type="tipo_voo" className="form-control" id="tipo_voo" defaultValue={flight?.tipo_voo} />
+                    </div>
+                    <div className="form-group dsflight-form-group">
+                        <label htmlFor="duracao">Informe a duracao</label>
+                        <input type="duracao" className="form-control" id="duracao" defaultValue={flight?.duracao} />
+                    </div>
+
                     <div className="dsflight-form-btn-container">
                         <button type="submit" className="btn btn-primary dsflight-btn">Salvar</button>
                     </div>

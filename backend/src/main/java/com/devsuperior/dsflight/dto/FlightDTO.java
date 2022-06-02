@@ -16,10 +16,13 @@ public class FlightDTO {
 	private String data_chegada;
 	private String tipo_voo;
 	
+// construtor padrão
+	
 	public FlightDTO() {
 	}
 
-		
+// construtor com argumentos
+	
 	public FlightDTO(Long id, String title, Double score, Integer count, String image, String origem, String destino,
 			Integer duracao, String data_partida, String data_chegada, String tipo_voo) {
 		this.id = id;
@@ -36,7 +39,8 @@ public class FlightDTO {
 	}
 
 
-
+// construtor que recebe a entidade flight - facilita a conversão de entidade para DTO
+// copia dados da entidade flight para o FlightDTO
 
 	public FlightDTO(Flight flight) {
 		id = flight.getId();
