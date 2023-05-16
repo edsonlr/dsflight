@@ -28,12 +28,16 @@ public class ScoreService {
 	@Transactional
 	public FlightDTO saveScore(ScoreDTO dto) {
 
+		System.out.println("---------ScoreService-------------------------");
 		System.out.println("flightid recebido: " + dto.getFlightId());
 		System.out.println("email recebido: " + dto.getEmail());
 		System.out.println("score recebido: " + dto.getScore());
 		System.out.println("duracao recebida: " + dto.getDuracao());
-		System.out.println("tipo de voo recebido: " + dto.getTipo_voo());
-		System.out.println("----------------------------------");
+		System.out.println("tipo de voo recebido: " + dto.getTipovoo());
+		System.out.println("companhia aerea recabida: " + dto.getCompanhiaaerea());
+		System.out.println("data partida recebida: " + dto.getDatapartida());
+		System.out.println("data chegada recebbida: " + dto.getDatachegada());
+		System.out.println("----------ScoreService------------------------");
 
 		User user = userRepository.findByEmail(dto.getEmail());
 		if (user == null) {
@@ -65,8 +69,20 @@ public class ScoreService {
 			flight.setDuracao(dto.getDuracao());
 		}
 		
-		if (dto.getTipo_voo() != null && dto.getTipo_voo() != "") {
-			flight.setTipo_voo(dto.getTipo_voo());
+		if (dto.getTipovoo() != null && dto.getTipovoo() != "") {
+			flight.setTipovoo(dto.getTipovoo());
+		}
+		
+		if (dto.getCompanhiaaerea() != null && dto.getCompanhiaaerea() != "") {
+			flight.setCompanhiaaerea(dto.getCompanhiaaerea());
+		}
+		
+		if (dto.getDatapartida() != null && dto.getDatapartida() != "") {
+			flight.setDatapartida(dto.getDatapartida());
+		}
+		
+		if (dto.getDatachegada() != null && dto.getDatachegada() != "") {
+			flight.setDatachegada(dto.getDatachegada());
 		}
 		
 		flight = flightRepository.save(flight);
