@@ -16,13 +16,13 @@ function FlightCard( { flight } : Props) {
         <div>
             <img className="dsflight-flight-card-image" src={flight.image} alt={flight.title} />
             <div className="dsflight-card-bottom-container">
-                <h3>{flight.title}</h3>
-                <p>tipo de voo : {flight.tipo_voo}</p>
-                <p>origem: {flight.origem}</p>
-                <p>data partida : {flight.data_partida}</p>
-                <p>destino: {flight.destino}</p>
-                <p>data chegada : {flight.data_chegada}</p>
-                <p>duracao : {flight.duracao} minutos</p>
+                <h3>{flight.companhiaaerea}-{flight.tipoaviao}-{flight.matriculaaviao}</h3>
+                <p><b>tipo de voo :</b> {flight.tipovoo}</p>
+                <p><b>origem:</b> {flight.paisorigem}-{flight.cidadeorigem}-{flight.aeroportoorigem}</p>
+                <p><b>data partida :</b> {flight.datapartida}</p>
+                <p><b>destino:</b> {flight.paisdestino}-{flight.cidadedestino}-{flight.aeroportodestino}</p>
+                <p><b>data chegada :</b> {flight.datachegada}</p>
+                <p><b>duracao :</b> {flight.duracao} minutos</p>
                 <FlightScore count={flight.count} score={flight.score} />
                 <Link to={`/form/${flight.id}`}>
                     <div className="btn btn-primary dsflight-btn">Avaliar/Alterar</div>

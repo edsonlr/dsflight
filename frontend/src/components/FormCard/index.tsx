@@ -32,8 +32,11 @@ function FormCard( { flightId } : Props) {
         
         const email = (event.target as any).email.value;
         const score = (event.target as any).score.value;
-        const tipo_voo = (event.target as any).tipo_voo.value;
+        const tipovoo = (event.target as any).tipovoo.value;
         const duracao = (event.target as any).duracao.value;
+        const companhiaaerea = (event.target as any).companhiaaerea.value;
+        const datapartida = (event.target as any).datapartida.value;
+        const datachegada = (event.target as any).datachegada.value;
 
         if (!validateEmail(email)) {
            return 
@@ -47,8 +50,11 @@ function FormCard( { flightId } : Props) {
                 email: email,
                 flightId: flightId,
                 score: score,
-                tipo_voo: tipo_voo,
-                duracao: duracao
+                tipovoo: tipovoo,
+                duracao: duracao,
+                datapartida: datapartida,
+                datachegada: datachegada,
+                companhiaaerea: companhiaaerea
             }
         }
 
@@ -63,13 +69,13 @@ function FormCard( { flightId } : Props) {
         <div className="dsflight-form-container">
             <img className="dsflight-flight-card-image" src={flight?.image} alt={flight?.title} />
             <div className="dsflight-card-bottom-container">
-                <h3>{flight?.title}</h3>
-                <p>tipo de voo : {flight?.tipo_voo}</p>
-                <p>origem: {flight?.origem}</p>
-                <p>data partida : {flight?.data_partida}</p>
-                <p>destino: {flight?.destino}</p>
-                <p>data chegada : {flight?.data_chegada}</p>
-                <p>duracao : {flight?.duracao} minutos</p>
+                <h3>{flight?.companhiaaerea}-{flight?.tipoaviao}-{flight?.matriculaaviao}</h3>
+                <p><b>tipo de voo :</b> {flight?.tipovoo}</p>
+                <p><b>origem:</b> {flight?.paisorigem}-{flight?.cidadeorigem}-{flight?.aeroportoorigem}  </p>
+                <p><b>data partida :</b> {flight?.datapartida}</p>
+                <p><b>destino:</b> {flight?.paisdestino}-{flight?.cidadedestino}-{flight?.aeroportodestino}</p>
+                <p><b>data chegada:</b> {flight?.datachegada}</p>
+                <p><b>duracao:</b> {flight?.duracao} <b>minutos</b></p>
                 <form className="dsflight-form" onSubmit={handleSubmit}>  
                     <div className="form-group dsflight-form-group">
                         <label htmlFor="email">Informe seu email</label>
@@ -88,9 +94,37 @@ function FormCard( { flightId } : Props) {
                     </div>
                     <h3> Preencha abaixo caso deseje alterar algum dado do voo</h3>
 
+                    
+
+{/* image, 
+aeroportoorigem, 
+aeroportodestino, 
+cidadeorigem, 
+cidadedestino, 
+paisorigem, 
+paisdestino, 
+tipoaviao, 
+matriculaaviao, 
+escalas,
+observacao
+
+    */}
+
                     <div className="form-group dsflight-form-group">
-                        <label htmlFor="tipo_voo">Informe o tipo de voo</label>
-                        <input type="tipo_voo" className="form-control" id="tipo_voo" defaultValue={flight?.tipo_voo} />
+                        <label htmlFor="companhiaaerea">Informe a Companhia Aérea</label>
+                        <input type="companhiaaerea" className="form-control" id="companhiaaerea" defaultValue={flight?.companhiaaerea} />
+                    </div>
+                    <div className="form-group dsflight-form-group">
+                        <label htmlFor="datapartida">Informe a Data da Partida</label>
+                        <input type="datapartida" className="form-control" id="datapartida" defaultValue={flight?.datapartida} />
+                    </div>
+                    <div className="form-group dsflight-form-group">
+                        <label htmlFor="datachegada">Informe a Data da Chegada</label>
+                        <input type="datachegada" className="form-control" id="datachegada" defaultValue={flight?.datachegada} />
+                    </div>
+                    <div className="form-group dsflight-form-group">
+                        <label htmlFor="tipovoo">Informe o tipo de voo</label>
+                        <input type="tipovoo" className="form-control" id="tipovoo" defaultValue={flight?.tipovoo} />
                     </div>
                     <div className="form-group dsflight-form-group">
                         <label htmlFor="duracao">Informe a duracao</label>

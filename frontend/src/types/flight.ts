@@ -4,12 +4,23 @@ export type Flight = {
     score: number;
     count: number;
     image: string;
-    data_chegada: string;
-    data_partida: string;
-    destino: string;
-    origem: string;
-    tipo_voo: string;
+    datapartida: string
+    datachegada: string
+    aeroportoorigem: string
+    aeroportodestino: string
+    cidadeorigem: string
+    cidadedestino: string
+    tipovoo: string
     duracao: number;
+    paisorigem: string
+    paisdestino: string
+    tipoaviao: string
+    matriculaaviao: string
+    companhiaaerea: string
+    escalas:string
+    observação: string
+
+
 }
 
 export type FlightPage = {
